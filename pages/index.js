@@ -22,7 +22,7 @@ class Index extends Component {
     this.setState({ isLoading: true });
 
     if (this.state.username === 'joe' && this.state.password === 'admin') {
-      setTimeout(() => Router.push('/profile'), 2000);
+      setTimeout(() => Router.push('/profile'), 500);
     } else {
       setTimeout(
         () =>
