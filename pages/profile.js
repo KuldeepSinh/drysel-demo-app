@@ -114,7 +114,7 @@ class Profile extends Component {
     return (
       <ProfileWrapper className="pt-card pt-elevation-4">
         <ProfileInputGroup>
-          <h2>Profile info</h2>
+          <h2>User information</h2>
           <br />
           <Input
             className="pt-large"

@@ -1,28 +1,37 @@
 import React, { Component } from 'react';
 import Router from 'next/router';
 import styled from 'styled-components';
-import { InputGroup, Button } from '@blueprintjs/core';
+import { InputGroup, Button, Callout } from '@blueprintjs/core';
 
 const IndexWrapper = styled.div`
   width: 400px;
   text-align: center;
 `;
 
+const StyledCallout = styled(Callout)`text-align: left;`;
+
 class Index extends Component {
   state = {
     username: '',
     password: '',
-    isLoading: false
+    isLoading: false,
+    isError: false
   };
 
   handleLogin = () => {
     this.setState({ isLoading: true });
 
-    if (this.state.username === 'admin' && this.state.password === 'admin') {
+    if (this.state.username === 'joe' && this.state.password === 'admin') {
       setTimeout(() => Router.push('/profile'), 2000);
     } else {
       setTimeout(
-        () => this.setState({ username: '', password: '', isLoading: false }),
+        () =>
+          this.setState({
+            username: '',
+            password: '',
+            isLoading: false,
+            isError: true
+          }),
         2000
       );
     }
@@ -32,7 +41,7 @@ class Index extends Component {
     return (
       <IndexWrapper className="pt-card pt-elevation-4">
         <br />
-        <h2>Login</h2>
+        <h2 id="login">Login</h2>
         <br />
         <br />
         <InputGroup
@@ -57,6 +66,13 @@ class Index extends Component {
           disabled={this.state.isLoading}
         />
         <br />
+        {!this.state.username &&
+          !this.state.password &&
+          this.state.isError && (
+            <StyledCallout id="error" iconName="error" intent={3} title="Error">
+              You have entered an invalid username or password
+            </StyledCallout>
+          )}
         <br />
         <Button
           className="pt-large pt-fill"
