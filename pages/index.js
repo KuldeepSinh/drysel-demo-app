@@ -32,7 +32,7 @@ class Index extends Component {
             isLoading: false,
             isError: true
           }),
-        2000
+        500
       );
     }
   };

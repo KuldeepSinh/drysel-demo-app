@@ -107,14 +107,14 @@ class Profile extends Component {
           address2: `${city}, ${state}, ${zipcode}`
         }
       });
-    }, 2000);
+    }, 500);
   };
 
   render() {
     return (
       <ProfileWrapper className="pt-card pt-elevation-4">
         <ProfileInputGroup>
-          <h2>User information</h2>
+          <h2 id="user-info">User information</h2>
           <br />
           <Input
             className="pt-large"
