@@ -32,7 +32,7 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <title>Selenium Devops App</title>
+          <title>DRYSEL DEMO APP</title>
           {this.props.styleTags}
           <style dangerouslySetInnerHTML={{ __html: normalize }} />
           <style dangerouslySetInnerHTML={{ __html: blueprintjs }} />
